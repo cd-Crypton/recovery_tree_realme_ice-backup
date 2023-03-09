@@ -1,4 +1,4 @@
-# Android device tree for qti Lahaina for arm64 (lahaina)
+# Custom Recovery | Debice Tree for Ice
 
 ```
 #
