@@ -131,3 +131,7 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := true
 
 # Version/Maintainer
 TW_DEVICE_VERSION := Crypton
+
+# Debuging flags
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
