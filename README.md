@@ -1,4 +1,4 @@
-# Custom Recovery | Debice Tree for Ice
+# Custom Recovery | Device Tree for Ice
 
 ```
 #
