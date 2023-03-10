@@ -32,6 +32,7 @@ AB_OTA_PARTITIONS += \
     system_ext \
     product \
     vendor \
+    vendor_boot \
     odm
 
 # Bootctrl HAL
@@ -68,8 +69,7 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/qcom-caf/bootctrl \
-    vendor/qcom/opensource/commonsys-intf/display
+    hardware/qcom-caf/bootctrl
     
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES := debuggerd
@@ -113,3 +113,6 @@ SHIPPING_API_LEVEL := 30
 
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE := RMX3461,RE54BFL1
+
+# Copy modules for depmod
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(DEVICE_PATH)/recovery/root/vendor/lib/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules)
