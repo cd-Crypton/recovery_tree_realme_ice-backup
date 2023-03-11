@@ -41,8 +41,9 @@ TARGET_NO_BOOTLOADER := false
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_KERNEL_CMDLINE := androidboot.init_fatal_reboot_target=recovery
-BOARD_KERNEL_CMDLINE := twrpfastboot=1
+BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket pcie_ports=compat loop.max_part=7 iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 kpti=off iptable_raw.raw_before_defrag=1
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
+BOARD_KERNEL_CMDLINE += twrpfastboot=1
 BOARD_KERNEL_IMAGE_NAME := kernel
 TARGET_KERNEL_CONFIG := $(PRODUCT_DEVICE)_defconfig
 TARGET_KERNEL_SOURCE := kernel/$(PRODUCT_BRAND)/$(PRODUCT_DEVICE)
@@ -121,7 +122,7 @@ TW_DEFAULT_BRIGHTNESS := 1200
 TW_EXCLUDE_APEX := true
 TW_HAS_EDL_MODE := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
-TW_LOAD_VENDOR_MODULES := true
+TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko apr_dlkm.ko msm_drm.ko q6_notifier_dlkm.ko q6_pdr_dlkm.ko snd_event_dlkm.ko"
 
 # Decryption
 TW_INCLUDE_CRYPTO := true
